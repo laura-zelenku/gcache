@@ -1,3 +1,3 @@
-module github.com/bluele/gcache
+module github.com/laura-zelenku/gcache
 
 go 1.15

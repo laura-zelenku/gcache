@@ -176,6 +176,17 @@ func (cb *CacheBuilder) Build() Cache {
 	return cb.build()
 }
 
+func (cb *CacheBuilder) BuildLRU() *LRUCache {
+	if cb.size <= 0 && cb.tp != TYPE_SIMPLE {
+		panic("gcache: Cache size <= 0")
+	}
+
+	if cb.tp != TYPE_LRU {
+		panic("gcache: Type not LRU")
+	}
+	return newLRUCache(cb)
+}
+
 func (cb *CacheBuilder) build() Cache {
 	switch cb.tp {
 	case TYPE_SIMPLE:
